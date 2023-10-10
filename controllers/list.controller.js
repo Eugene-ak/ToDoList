@@ -25,13 +25,14 @@ const addListItem = async (req, res) => {
 const deleteListItems =  async (req, res) => {
     console.log(req);
     try {
-        const { _id } = req.body;
+        const { id } = req.params;
         console.log(req.body);
-        const item = await itemModel.findById(_id);
+        const item = await itemModel.findById(id);
         // if (item._id == object._id) {
             await item.deleteOne();
         // }
-        res.status(200).render("index", {listTitle: "To Do List", listItems: item});
+        // res.status(200).render("index", {listTitle: "To Do List", listItems: item});
+        res.status(204).json({message: "Deleted successfully"});
     } catch (error) {
         return res.status(400).json({error: error.message});
     }

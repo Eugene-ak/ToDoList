@@ -1,8 +1,8 @@
-const express = require("express");
-const listController = require("../controllers/list.controller");
-
-const app = express();
-
-exports.deleteItems = function () {
-    
+const deleteFunc = (id) =>{
+    fetch(`http://localhost:3000/${id}`, {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
 }

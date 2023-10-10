@@ -4,6 +4,6 @@ const { addListItem, getAllLists, deleteListItems } = require('../controllers/li
 
 router.get('/', getAllLists);
 router.post("/", addListItem);
-router.delete("/", deleteListItems);
+router.delete("/:id", deleteListItems);
 
 module.exports = router;
